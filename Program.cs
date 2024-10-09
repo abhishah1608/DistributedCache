@@ -10,7 +10,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-string configPath = Directory.GetCurrentDirectory() + "\\" + "Config";
+string configPath = Directory.GetCurrentDirectory() + "//" + "Config";
+
+// here 'this statement' when I need to deploy on Windows IIS but not on linux wsl - docker environment.
+// Here // - refers to linux environment and \\ - refers to windows or local environment.
+// string configPath = Directory.GetCurrentDirectory() + "\\" + "Config";
 
 string envfile = builder.Environment.EnvironmentName == "Development" ? "dev" : builder.Environment.EnvironmentName == "Staging" ? "stag" : "prod";
 

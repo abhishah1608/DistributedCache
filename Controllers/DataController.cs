@@ -1,9 +1,6 @@
 ﻿using DistributedCache.Helper;
 using DistributedCache.Service;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Distributed;
-using System.Configuration;
 
 namespace DistributedCache.Controllers
 {
