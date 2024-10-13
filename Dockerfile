@@ -12,14 +12,10 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 COPY ["DistributedCache.csproj", "."]
 RUN dotnet restore "./DistributedCache.csproj"
-RUN mkdir -p /app/Config
 COPY . .
 
 # Copy third-party DLLs into the container
 COPY ./libs/*.dll /app/libs/
-
-# Copy Configuration files.
-COPY ./Config/* /app/Config/
 
 WORKDIR "/src/."
 RUN dotnet build "DistributedCache.csproj" -c Release -o /app/build
